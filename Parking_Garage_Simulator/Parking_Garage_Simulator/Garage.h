@@ -9,9 +9,10 @@ class Garage
 
 private:
 	int noOfLots;
-	queue<Vehicle*> carQueue;
+	
 
 public:
+	queue<Vehicle*> carQueue;
 	Garage();
 	~Garage();
 };
