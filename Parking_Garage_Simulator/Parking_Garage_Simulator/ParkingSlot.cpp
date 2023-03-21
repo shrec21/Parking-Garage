@@ -1,5 +1,6 @@
 #include "ParkingSlot.h"
 #include "Vehicle.h"
+#include "Ticket.h"
 using namespace std;
 
 
@@ -16,6 +17,7 @@ int ParkingSlot::getSlotNo() {
 	return slotNo;
 }
 
+
 bool ParkingSlot::getIsOccupied() {
 	return isOccupied;
 }
@@ -30,6 +32,14 @@ Vehicle* ParkingSlot::getVehicle() {
 
 void ParkingSlot::setVehicle(Vehicle* parkedVehicle) {
 	this->parkedVehicle = parkedVehicle;
+}
+
+Ticket* ParkingSlot::getTicket() {
+	return ticket;
+}
+
+void ParkingSlot::setTicket(Ticket* ticket) {
+	this->ticket = ticket;
 }
 
 time_t ParkingSlot::getInTime() {

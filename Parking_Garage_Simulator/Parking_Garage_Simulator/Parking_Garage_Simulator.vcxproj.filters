@@ -24,13 +24,13 @@
     <ClInclude Include="Garage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SUV.h">
+    <ClInclude Include="ParkingSlot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sedan.h">
+    <ClInclude Include="Ticket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Compact.h">
+    <ClInclude Include="ParkingLot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,13 +47,13 @@
     <ClCompile Include="Garage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SUV.cpp">
+    <ClCompile Include="ParkingSlot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Sedan.cpp">
+    <ClCompile Include="Ticket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Compact.cpp">
+    <ClCompile Include="ParkingLot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

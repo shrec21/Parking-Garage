@@ -1,11 +1,14 @@
+
+#include "Ticket.h"
 #include "Vehicle.h"
 
 class ParkingSlot
 {
 private:
-    int slotNo;
+	 int slotNo;
 	bool isOccupied;
 	Vehicle *parkedVehicle;
+	Ticket* ticket;
 	time_t inTime;
 	time_t exitTime;
 public:
@@ -18,6 +21,9 @@ public:
 
 	Vehicle* getVehicle();
 	void setVehicle(Vehicle* parkedVehicle);
+
+	Ticket* getTicket();
+	void setTicket(Ticket* ticket);
 
 	time_t getInTime();
 	void setInTime(time_t inTime);
