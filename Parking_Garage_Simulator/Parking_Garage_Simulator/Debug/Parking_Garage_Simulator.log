@@ -1,7 +1,7 @@
-﻿  ParkingLot.cpp
-c:\users\sce38\source\repos\parking_garage_simulator\parking_garage_simulator\parkinglot.cpp(82): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
-  ParkingSlot.cpp
-c:\users\sce38\source\repos\parking_garage_simulator\parking_garage_simulator\parkingslot.cpp(54): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+﻿  Garage.cpp
+  ParkingLot.cpp
+  Parking_Garage_Simulator.cpp
   Ticket.cpp
-c:\users\sce38\source\repos\parking_garage_simulator\parking_garage_simulator\ticket.cpp(62): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Valet.cpp
   Generating Code...
+  Parking_Garage_Simulator.vcxproj -> C:\Users\SCE38\source\repos\Parking_Garage_Simulator\Debug\Parking_Garage_Simulator.exe

@@ -1,115 +1,87 @@
-
-#include<vector>
+#include <vector>
 #include "ParkingLot.h"
 #include "ParkingSlot.h"
 #include "Ticket.h"
 
-
 using namespace std;
 
-ParkingLot::ParkingLot(int lotNo, int maxCapacity)
-{
+ParkingLot::ParkingLot() {
+	lotNo = 0;
+}
+ParkingLot::ParkingLot(int numSlots, int lotNo) {
 	this->lotNo = lotNo;
-	this->maxCapacity = maxCapacity;
-	this->currCapacity = 0;
-	for (int i = 0; i < maxCapacity; i++) {
-		ParkingSlot slot(i + 1);
-		slots.push_back(slot);
+	for (int i = 1; i <= numSlots; i++) {
+		slots.push_back(new ParkingSlot(i));
 	}
-	//this->slots.reserve(maxCapacity);
 }
 
 int ParkingLot::getLotNo() {
 	return lotNo;
 }
 
+void ParkingLot::setLotNo(int lotNo) {
+	this->lotNo = lotNo;
+}
+
+
+vector<ParkingSlot*>& ParkingLot::getSlots() {
+	return slots;
+}
+
+queue<Vehicle*>& ParkingLot::getVehicleQueue() {
+	return vehicleQueue;
+}
+
+void ParkingLot::addToVehicleQueue(Vehicle* vehicle) {
+	vehicleQueue.push(vehicle);
+}
+
+ParkingSlot* ParkingLot::parkVehicle(Vehicle* vehicle) {
+	for (auto& slot : slots) {
+		if (!slot->getIsOccupied()) {
+			slot->setIsOccupied(true);
+			slot->setVehicle(vehicle);
+			slot->setInTime(time(NULL));
+			return slot;
+		}
+	}
+	return nullptr;
+}
+
+bool ParkingLot::removeVehicle(int slotNo) {
+	for (auto& slot : slots) {
+		if (slot->getSlotNo() == slotNo && slot->getIsOccupied()) {
+			slot->setIsOccupied(false);
+			slot->setVehicle(nullptr);
+			slot->setInTime(0);
+			return true;
+		}
+	}
+	return false;
+}
+
 int ParkingLot::getAvailableSlots() {
 	int availableSlots = 0;
 	for (auto& slot : slots) {
-		if (!slot.getIsOccupied()) {
+		if (!slot->getIsOccupied()) {
 			availableSlots++;
 		}
 	}
 	return availableSlots;
 }
 
-int ParkingLot::getOccupiedSlots() {
-	int occupiedSlots = 0;
-	for (auto& slot : slots) {
-		if (slot.getIsOccupied()) {
-			occupiedSlots++;
-		}
-	}
-	return occupiedSlots;
-}
-
 bool ParkingLot::isLotFull() {
-	int availableSlots = getAvailableSlots();
-	if (availableSlots == 0)return 1;
-	else return 0;
+	return getAvailableSlots() == 0;
 }
 
-bool ParkingLot::parkVehicle(Vehicle* vehicle) {
-	if (isLotFull()) return 0;
-	for (auto& slot : slots) {
-		if (!slot.getIsOccupied()) {
-			slot.setVehicle(vehicle);
-			return 1;
-		}
-	}
 
-}
 
-bool ParkingLot::removeVehicle(int slotNo){
-	if (slotNo < 1 || slotNo > maxCapacity) {
-		return 0;
-	}
-
-	ParkingSlot& slot = slots[slotNo - 1];  //slot inside the vector, that is why i referenced
-	if (!slot.getIsOccupied()) {
-		return 0;
-	}
-
-	slot.getVehicle();
-	slot.setVehicle(nullptr);
-	return 1;
-}
-
-int ParkingLot:: findVehicleSlot(Vehicle* vehicle) {
-	for (auto& slot : slots) {
-		if (slot.getIsOccupied() && slot.getVehicle() == vehicle) {
-			return slot.getSlotNo();
-		}
-	}
-	return -1;
-}
-
-int ParkingLot::createTicket(Vehicle* vehicle) {
-	if (isLotFull()) {
-		return -1;
-	}
-	for (auto& slot : slots) {
-		if (!slot.getIsOccupied()) {
-			slot.setVehicle(vehicle);
-			Ticket ticket;
-			ticket.setLotNo(getLotNo());
-			ticket.setParkedVehicle(vehicle);
-			ticket.setSlotNo(slot.getSlotNo());
-			ticket.setVehicleId(vehicle->getVehicleId());
-			return ticket.getTicketNo();
-		}
-	}
-}
-
-int ParkingLot::checkTicket(int ticketNo) {
-	for (auto& slot : slots) {
-		if (slot.getIsOccupied() && slot.getTicket()->getTicketNo() == ticketNo) {
-			return slot.getSlotNo();
-		}
-	}
-	return -1;
-}
 
 ParkingLot::~ParkingLot()
 {
+	for (auto& slot : slots) {
+		delete slot;
+	}
+	
+	
 }

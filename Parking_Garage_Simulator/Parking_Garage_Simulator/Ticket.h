@@ -1,50 +1,26 @@
+#pragma once
 #include "Vehicle.h"
+//#include "ParkingSlot.h"
+#include <time.h>
 
+class ParkingSlot;
+
+class ParkingLot;
 
 class Ticket
 {
 private:
 	int ticketNo;
-	Vehicle *parkedVehicle;
-	ParkingSlot *parkedSlot;
-	ParkingLot* parkedLot;
-	int vehicleId;
-	int lotNo;
-	int slotNo;
+	ParkingSlot* parkingSlot;
+	ParkingLot* parkingLot;
 	time_t inTime;
-	time_t exitTime;
-	int price;
 
 public:
-	Ticket();
-
+	Ticket(int ticketNo, ParkingSlot* parkingSlot, ParkingLot* parkingLot);
 	int getTicketNo();
-	//void setTicketNo(int slotNo);
-	
-	Vehicle* getParkedVehicle();
-	void setParkedVehicle(Vehicle *parkedVehicle);
+	ParkingSlot* getParkingSlot();
+	ParkingLot* getParkingLot();
+	time_t getInTime();
 
-	ParkingSlot *getParkedSlot();
-	void setParkedSlot(ParkingSlot *parkedSlot);
-
-	ParkingLot *getParkedLot();
-	void setParkedLot(ParkingLot *parkedLot);
-
-	int getVehicleId();
-	void setVehicleId(int vehicleId);
-
-	int getSlotNo();
-	void setSlotNo(int slotNo);
-
-	int getLotNo();
-	void setLotNo(int lotNo);
-
-	/* tbd
-	int getInTime();
-	void setInTime(time_t inTime);
-
-	int getExitTime();
-	void setExitTime(time_t exitTime);
-	*/
 	~Ticket();
 };

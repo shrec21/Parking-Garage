@@ -10,16 +10,16 @@ using namespace std;
 
 Vehicle::Vehicle()
 {
-	this->vehicleId = vid;
-	if (vid % 3 == 0) {
+	vehicleId = vid + rand();
+	if (vehicleId % 3 == 0) {
 		type = "Compact";
 		this->price = 50;
 	}
-	else if (vid % 3 == 1) {
+	else if (vehicleId % 3 == 1) {
 		type = "SUV";
 		this->price = 100;
 	}
-	else if (vid % 3 == 2) {
+	else if (vehicleId % 3 == 2) {
 		type = "Sedan";
 		this->price = 150;
 	}

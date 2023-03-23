@@ -11,4 +11,9 @@
 
 // TODO: add headers that you want to pre-compile here
 
+#include "stdio.h"
+#include "tchar.h"
+#include "SDKDDKVer.h"
+#include <vector>
+
 #endif //PCH_H
