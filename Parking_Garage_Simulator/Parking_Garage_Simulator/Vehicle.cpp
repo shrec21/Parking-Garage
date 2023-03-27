@@ -27,12 +27,20 @@ Vehicle::Vehicle()
 	
 }
 
+int Vehicle::getPrice() {
+	return price;
+}
+
 int  Vehicle::getVehicleId() const {
 	return vehicleId;
 }
 
 string  Vehicle::getVehicleType() const {
 	return type;
+}
+
+int Vehicle::getSlotPosition() {
+
 }
 
 Vehicle::~Vehicle() {

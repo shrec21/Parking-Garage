@@ -32,7 +32,7 @@ bool Valet::parkVehicle(Vehicle* vehicle, ParkingLot* parkingLot) {
 }
 
 bool Valet::removeVehicle(int slotNo, ParkingLot* parkingLot) {
-	if (!isFree) {
+	if (isFree) {
 		bool success = parkingLot->removeVehicle(slotNo);
 		if (success) {
 			isFree = true;

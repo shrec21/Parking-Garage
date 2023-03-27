@@ -1,4 +1,5 @@
 #include <vector>
+#include<iostream>
 #include "ParkingLot.h"
 #include "ParkingSlot.h"
 #include "Ticket.h"
@@ -49,14 +50,20 @@ ParkingSlot* ParkingLot::parkVehicle(Vehicle* vehicle) {
 }
 
 bool ParkingLot::removeVehicle(int slotNo) {
-	for (auto& slot : slots) {
-		if (slot->getSlotNo() == slotNo && slot->getIsOccupied()) {
-			slot->setIsOccupied(false);
-			slot->setVehicle(nullptr);
-			slot->setInTime(0);
-			return true;
-		}
-	}
+
+	ParkingSlot*& slot = slots[slotNo - 1];
+		 
+		
+			if (slot->getIsOccupied() == true) {
+				slot->setIsOccupied(false);
+				slot->setVehicle(nullptr);
+				slot->setInTime(0);
+				return true;
+			}
+			
+		
+		
+	
 	return false;
 }
 

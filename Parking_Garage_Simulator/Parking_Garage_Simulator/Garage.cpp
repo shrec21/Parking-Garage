@@ -8,10 +8,9 @@ Garage::Garage(int numLots, int numSlots) {
 	}
 }
 
-/*Garage::Garage(int numSlots)
-{
-	parkingLot = new ParkingLot(numSlots);
-}*/
+void Garage::setParkingLot(ParkingLot* parkingLot) {
+	this->parkingLot = parkingLot;
+}
 
 Ticket* Garage:: getTicket(Vehicle* vehicle) {
 	ParkingSlot* slot = parkingLot->parkVehicle(vehicle);
@@ -22,6 +21,17 @@ Ticket* Garage:: getTicket(Vehicle* vehicle) {
 		return ticket;
 	}
 	return nullptr;
+}
+
+void Garage::removeTicket(Ticket* ticket) {
+	for (auto& ticket : tickets) {
+		if (ticket == ticket) {
+			
+				delete ticket;
+				
+			
+		}
+	}
 }
 
 bool Garage::returnVehicle(int ticketNumber) {

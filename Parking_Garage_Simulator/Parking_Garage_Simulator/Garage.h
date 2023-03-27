@@ -21,7 +21,9 @@ public:
 	ParkingLot* getParkingLot();
 	
 	Garage(int numLots, int numSlots);
+	void setParkingLot(ParkingLot* parkingLot);
 	Ticket* getTicket(Vehicle* vehicle);
+	void removeTicket(Ticket* ticket);
 	bool returnVehicle(int ticketNumber);
 	int getNumAvailableSlots();
 	queue<Vehicle*>& getVehicleQueue();
