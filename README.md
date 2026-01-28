@@ -3,6 +3,7 @@
 A console-based Parking Garage Simulator implemented in C++, modeling the core entities and workflows of a real-world parking garage using object-oriented design.
 
 📁 Project Structure
+```
 Parking_Garage_Simulator/
 │
 ├── Garage.cpp / Garage.h        # Manages the overall garage logic
@@ -17,6 +18,7 @@ Parking_Garage_Simulator/
 ├── Debug/                        # Build artifacts (generated)
 ├── *.vcxproj*                   # Visual Studio project files
 ├── pch.cpp / pch.h              # Precompiled headers
+```
 ⚙️ Features
 
 Object-oriented design with clear separation of responsibilities
