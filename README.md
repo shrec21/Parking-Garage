@@ -43,4 +43,4 @@ Language: C++
 
 IDE: Visual Studio
 
-Concepts: OOP, class design, header/source separation
+Concepts: OOP, class design
