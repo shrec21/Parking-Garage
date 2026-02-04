@@ -27,7 +27,7 @@ Simulates vehicle entry, parking allocation, ticketing, and exit flow
 
 Models real-world components like Garage, Parking Lot, Slots, Valet, and Tickets
 
-Built using Visual Studio C++ project structure
+Built using a Visual Studio C++ project structure
 
 ▶️ How to Run
 
